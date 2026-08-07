@@ -1,10 +1,10 @@
 use std::fmt::{Display, Formatter, Result};
 
 pub struct Sound {
-    name: String,
-    frequency: f32,
-    gain: f32,
-    octave: i32,
+    pub name: String,
+    pub frequency: f32,
+    pub gain: f32,
+    pub octave: i32,
 }
 
 pub const NAMES: [&str; 7] = ["Do", "Ré", "Mi", "Fa", "Sol", "La", "Si"];
