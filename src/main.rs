@@ -9,9 +9,7 @@ fn main() {
     let image = Image::new("data/demo.png");
 
     for pixel in image.parse_rgb_pixels() {
-        let hsl = pixel.to_hsl_pixel();
-        let sound = hsl.to_sound();
-        
-        println!("{}", sound);
+        let pixel_sound = pixel.to_hsl_pixel().to_sound();
+        println!("{}", pixel_sound);
     }
 }
