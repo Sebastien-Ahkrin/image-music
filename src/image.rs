@@ -1,3 +1,4 @@
+use crate::rgb_pixel::RgbPixel;
 use image::ImageReader;
 use std::fmt::{Display, Formatter, Result};
 
@@ -21,13 +22,23 @@ impl Image {
             panic!("Could not open image: {}", path);
         }
 
-        let decoded_image = image.unwrap().decode().unwrap().to_rgba8();
+        let decoded_image = image.unwrap().decode().unwrap().to_rgb8();
 
         Self {
             width: decoded_image.width(),
             height: decoded_image.height(),
             data: decoded_image.to_vec(),
         }
+    }
+
+    pub fn parse_rgb_pixels(&self) -> Vec<RgbPixel> {
+        let mut pixels: Vec<RgbPixel> = Vec::new();
+
+        self.data.chunks(3).for_each(|chunk| {
+            pixels.push(RgbPixel::new(chunk[0], chunk[1], chunk[2]));
+        });
+
+        pixels
     }
 }
 
