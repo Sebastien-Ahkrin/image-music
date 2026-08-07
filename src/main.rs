@@ -1,3 +1,8 @@
+use crate::image::Image;
+
+mod image;
+
 fn main() {
-    println!("Hello, world!");
+    let image = Image::new("data/demo.png");
+    println!("{image}");
 }
