@@ -6,6 +6,7 @@ pub struct HslPixel {
     pub lightness: f32,
 }
 
+
 impl HslPixel {
     pub fn new(hue: f32, saturation: f32, lightness: f32) -> Self {
         HslPixel {
